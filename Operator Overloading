@@ -1,0 +1,77 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class Matrix
+{
+public:
+
+std::vector<vector<int> > a;
+};
+Matrix operator+(Matrix const& d, Matrix const& r)
+{
+Matrix c;
+
+std::vector<vector<int> > l;
+
+    for(int k(1);k<=d.a.size();k++)
+
+    {
+
+        l.push_back(vector<int>(d.a[0].size()));
+
+        for(int o(0);o<=(d.a[0].size()-1);o++)
+
+        {
+
+    l[k-1][o] = d.a[k-1][o] + r.a[k-1][o];
+
+        }
+
+    }
+
+c.a = l;
+
+return (c);
+}
+
+int main () {
+   int cases,k;
+   cin >> cases;
+   for(k=0;k<cases;k++) {
+      Matrix x;
+      Matrix y;
+      Matrix result;
+      int n,m,i,j;
+      cin >> n >> m;
+      for(i=0;i<n;i++) {
+         vector<int> b;
+         int num;
+         for(j=0;j<m;j++) {
+            cin >> num;
+            b.push_back(num);
+         }
+         x.a.push_back(b);
+      }
+      for(i=0;i<n;i++) {
+         vector<int> b;
+         int num;
+         for(j=0;j<m;j++) {
+            cin >> num;
+            b.push_back(num);
+         }
+         y.a.push_back(b);
+      }
+      result = x+y;
+      for(i=0;i<n;i++) {
+         for(j=0;j<m;j++) {
+            cout << result.a[i][j] << " ";
+         }
+         cout << endl;
+      }
+   }  
+   return 0;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  int N, Q;
+	
+	cin >> N >> Q;
+	int** m = new int*[N];
+
+	for (int i = 0; i<N; i++) {
+		int k;
+		cin >> k;
+
+		int* n = new int[k];
+
+		for (int j = 0; j<k; j++) {
+			cin >> n[j];
+		}
+		*(m + i) = n;
+	}
+
+	for (int i = 0; i < Q; i++)	{
+		int r, s;
+		cin >> r >> s;
+		cout << m[r][s] << endl;
+	}
+	return 0;
+}
